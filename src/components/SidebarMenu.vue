@@ -1,6 +1,6 @@
 <template>
     <section class="sidebar">
-      <router-link to="/">
+      <router-link to="/home">
         <section class="item_side_menu">
           <img src="@/assets/images/side_menu/home.png" alt="Home">
           HOME
@@ -48,12 +48,28 @@
           PERFIL
         </section>
       </router-link>
+      
+      <a href="#" @click.prevent="logout" class="logout-link">
+        <section class="item_side_menu">
+          <img src="@/assets/images/side_menu/gear.png" alt="Logout">
+          SAIR
+        </section>
+      </a>
     </section>
   </template>
   
   <script>
   export default {
-    name: 'SidebarMenu'
+    name: 'SidebarMenu',
+    methods: {
+      logout() {
+        // Remove o código de acesso do localStorage
+        localStorage.removeItem('userAccessCode')
+        
+        // Redireciona para a página de código de acesso
+        this.$router.push('/')
+      }
+    }
   }
   </script>
   
@@ -65,5 +81,15 @@
     filter: grayscale(1) brightness(1.2);
     opacity: 0.6;
     cursor: not-allowed !important;
+  }
+  
+  .logout-link {
+    text-decoration: none;
+    color: antiquewhite;
+    transition: opacity 0.3s ease;
+  }
+  
+  .logout-link:hover {
+    opacity: 0.8;
   }
   </style>

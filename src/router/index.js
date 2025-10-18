@@ -1,10 +1,21 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/HomePage.vue'
 import Dashboard from '../views/DashboardPage.vue'
+import AccessCode from '../views/AccessCodePage.vue'
 
 const routes = [
   {
     path: '/',
+    name: 'AccessCode',
+    component: AccessCode
+  },
+  {
+    path: '/access',
+    name: 'AccessCode',
+    component: AccessCode
+  },
+  {
+    path: '/home',
     name: 'Home',
     component: Home
   },
@@ -44,6 +55,18 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
+})
+
+// Guard de rota para verificar autenticação
+router.beforeEach((to, from, next) => {
+  const hasAccessCode = localStorage.getItem('userAccessCode')
+  
+  // Se não tem código de acesso e não está na página de acesso, redireciona para lá
+  if (!hasAccessCode && to.name !== 'AccessCode') {
+    next({ name: 'AccessCode' })
+  } else {
+    next()
+  }
 })
 
 export default router
