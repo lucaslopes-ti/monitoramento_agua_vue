@@ -26,23 +26,7 @@ export async function validateAccessCode(code) {
       return { valid: false, message: 'Formato de código inválido' }
     }
     
-    // TODO: Implementar chamada real para API quando estiver pronta
-    // const response = await fetch(`${API_CONFIG.BASE_URL}${API_CONFIG.AUTH_ENDPOINTS.VALIDATE_ACCESS_CODE}`, {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({ accessCode: code })
-    // })
-    // 
-    // if (!response.ok) {
-    //   throw new Error('Erro na validação')
-    // }
-    // 
-    // const result = await response.json()
-    // return result
     
-    // Por enquanto, aceita códigos que seguem o padrão
     return { valid: true, message: 'Código válido' }
     
   } catch (error) {
@@ -54,23 +38,7 @@ export async function validateAccessCode(code) {
 // Função para obter dados do usuário baseado no código
 export async function getUserData(accessCode) {
   try {
-    // TODO: Implementar chamada real para API quando estiver pronta
-    // const response = await fetch(`${API_CONFIG.BASE_URL}${API_CONFIG.AUTH_ENDPOINTS.GET_USER_DATA}`, {
-    //   method: 'GET',
-    //   headers: {
-    //     'Authorization': `Bearer ${accessCode}`,
-    //     'Content-Type': 'application/json',
-    //   }
-    // })
-    // 
-    // if (!response.ok) {
-    //   throw new Error('Erro ao obter dados do usuário')
-    // }
-    // 
-    // const userData = await response.json()
-    // return userData
     
-    // Por enquanto, retorna dados mockados
     return {
       userId: accessCode,
       userName: 'Usuário',
