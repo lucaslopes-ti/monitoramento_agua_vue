@@ -74,8 +74,6 @@
   </script>
   
   <style scoped>
-  /* Você pode manter os estilos da sidebar aqui se quiser */
-  /* Ou pode deixar vazio se estiver importando seu CSS global no App.vue */
   .side-disabled {
     pointer-events: none;
     filter: grayscale(1) brightness(1.2);
